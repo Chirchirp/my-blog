@@ -1,8 +1,10 @@
-/* General Styles */
+/* Import the Roboto font (if not linked via index.html) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f4;
+  font-family: 'Roboto', sans-serif;
+  background-color: #ffffff;
   color: #333;
 }
 
@@ -17,10 +19,11 @@ a:hover {
 
 /* Header & Footer */
 .header, .footer {
-  background-color: #222;
-  color: #fff;
+  background-color: #f8f9fa;
+  color: #333;
   padding: 1rem 2rem;
   text-align: center;
+  border-bottom: 1px solid #eaeaea;
 }
 
 .header h1, .footer p {
@@ -47,10 +50,10 @@ main {
 }
 
 section {
-  background: #fff;
+  background: #ffffff;
   padding: 2rem;
   margin-bottom: 2rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
 
 /* Post List */
@@ -83,12 +86,12 @@ form input, form textarea {
 form button {
   padding: 0.75rem;
   border: none;
-  background-color: #222;
+  background-color: #007bff;
   color: #fff;
   border-radius: 4px;
   cursor: pointer;
 }
 
 form button:hover {
-  background-color: #444;
+  background-color: #0056b3;
 }
