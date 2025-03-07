@@ -1,36 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Data Analyst Blog</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-    <header>
-        <h1>Contact Me</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="blog.html">Blog</a>
-        </nav>
-    </header>
-    <section>
-        <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+import React, { useState } from 'react';
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+function Contact() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: ''});
+  const [submitted, setSubmitted] = useState(false);
 
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-            <button type="submit">Send Message</button>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Typically, send data to a server here.
+    console.log(formData);
+    setSubmitted(true);
+  };
+
+  return (
+    <section className="contact">
+      <h2>Contact Me</h2>
+      {submitted ? (
+        <p>Message sent successfully!</p>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="name">Name:</label>
+          <input type="text" id="name" name="name" required value={formData.name} onChange={handleChange} />
+          
+          <label htmlFor="email">Email:</label>
+          <input type="email" id="email" name="email" required value={formData.email} onChange={handleChange} />
+          
+          <label htmlFor="message">Message:</label>
+          <textarea id="message" name="message" required value={formData.message} onChange={handleChange} />
+          
+          <button type="submit">Send Message</button>
         </form>
+      )}
     </section>
-    <footer>
-        <p>© 2025 Data Analyst Blog</p>
-    </footer>
-</body>
-</html>
+  );
+}
+
+export default Contact;
